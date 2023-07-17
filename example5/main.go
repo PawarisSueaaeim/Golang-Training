@@ -61,11 +61,9 @@ func updateTodo(c *gin.Context, TodoList *[]Todo) {
 			*TodoList = append((*TodoList)[:index], (*TodoList)[index+1:]...)
 			todo.ID = item.ID
 			*TodoList = append((*TodoList), todo)
-			return
 		}
 	}
 
-	c.JSON(http.StatusOK, gin.H{"result": todo})
 	c.JSON(http.StatusOK, gin.H{"result": *TodoList})
 }
 
